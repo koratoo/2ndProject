@@ -1,0 +1,124 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>spring_JAVA2</groupId>
+  <artifactId>spring_JAVA2</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <release>11</release>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.3</version>
+      </plugin>
+    </plugins>
+  </build>
+  <!-- 라이브러리 버전관리 -->
+  <properties>
+  <javax.servlet-version>4.0.1</javax.servlet-version>
+  <javax.servlet.jsp-version>2.3.3</javax.servlet.jsp-version>
+  <jstl-version>1.2</jstl-version>
+  <org.springframework-version>5.3.18</org.springframework-version>
+  <javax.annotation-version>1.3.2</javax.annotation-version>
+  </properties>
+  <!-- 라이브러리 세팅 -->
+  <dependencies>
+  <!-- servlet-api -->
+  <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>javax.servlet-api</artifactId>
+	    <version>${javax.servlet-version}</version>
+	    <scope>provided</scope>
+	</dependency>
+  
+	<!-- https://mvnrepository.com/artifact/javax.servlet.jsp/javax.servlet.jsp-api -->
+	<dependency>
+	    <groupId>javax.servlet.jsp</groupId>
+	    <artifactId>javax.servlet.jsp-api</artifactId>
+	    <version>${javax.servlet.jsp-version}</version>
+	    <scope>provided</scope>
+	</dependency>
+  
+ 	<!-- https://mvnrepository.com/artifact/jstl/jstl -->
+	<dependency>
+	    <groupId>jstl</groupId>
+	    <artifactId>jstl</artifactId>
+	    <version>${jstl-version}</version>
+	</dependency>
+  
+ 	<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-webmvc</artifactId>
+	    <version>${org.springframework-version}</version>
+	</dependency>
+  
+	<!-- https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api -->
+	<dependency>
+	    <groupId>javax.annotation</groupId>
+	    <artifactId>javax.annotation-api</artifactId>
+	    <version>${javax.annotation-version}</version>
+	</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+		<dependency>
+		    <groupId>org.hibernate.validator</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>6.2.0.Final</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+		<dependency>
+		    <groupId>javax.validation</groupId>
+		    <artifactId>validation-api</artifactId>
+		    <version>2.0.1.Final</version>
+		</dependency>
+ <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+      <dependency>
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-jdbc</artifactId>
+         <version>5.2.3.RELEASE</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
+      <dependency>
+         <groupId>org.apache.commons</groupId>
+         <artifactId>commons-dbcp2</artifactId>
+         <version>2.7.0</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+      <dependency>
+         <groupId>org.mybatis</groupId>
+         <artifactId>mybatis</artifactId>
+         <version>3.5.4</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+      <dependency>
+         <groupId>org.mybatis</groupId>
+         <artifactId>mybatis-spring</artifactId>
+         <version>2.0.3</version>
+      </dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-jdbc</artifactId>
+		    <version>5.3.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.10.2</version>
+		</dependency>
+		
+ 
+  </dependencies>
+  
+</project>
