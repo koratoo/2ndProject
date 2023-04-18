@@ -1,0 +1,18 @@
+package kr.co.softsoldesk.mapper;
+
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Select;
+
+import kr.co.softsoldesk.beans.chargeHistory;
+
+
+
+public interface PointMapper {
+
+	@Insert("insert into chargeHistory (ch_no, user_id,charge_date,charge_amount,payment_tool) values(ch_seq.nextval,#{user_id},sysdate,#{charge_amount}, #{payment_tool})")
+	public void chargePoint(chargeHistory ch);
+	
+	@Select("select ch_no,user_id,charge_date,charge_amount,payment_tool from chargeHistory where ch_no = 2")
+	public chargeHistory chargehistory();
+	
+}
