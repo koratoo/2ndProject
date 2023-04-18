@@ -1,0 +1,27 @@
+drop table chargeHistory;
+create table chargeHistory(
+ch_no number primary key,
+user_id varchar2(1000),
+charge_date date,
+charge_amount number,
+payment_tool varchar2(1000)
+);
+
+CREATE SEQUENCE ch_seq
+       INCREMENT BY 1
+       START WITH 1
+       MINVALUE 1
+       MAXVALUE 9999
+       NOCYCLE
+       NOCACHE
+       NOORDER;
+
+insert into chargeHistory (ch_no, user_id,charge_date,charge_amount,payment_tool)  
+values(ch_seq.nextval,'lears01@naver.com',sysdate, 1300000, 'kakao pay');
+
+
+delete from chargeHistory;
+select * from chargeHistory;
+
+select * from chargeHistory where ch_no = 2;
+commit;
