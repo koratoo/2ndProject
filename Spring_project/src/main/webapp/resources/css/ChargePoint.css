@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	/* box-sizing: border-box;	 */
+}
+
+#container {
+	margin: 0 auto;
+	position: relative;
+	top: 110px;
+	min-height: 859px;
+}
+a {
+  text-decoration: none;
+}
+.font-color {
+	color: purple;
+}
+
+#btn {
+	border-radius: 100%;
+	width: 30px;
+	height: 30px;
+	background-color: none;
+	color: black;
+	font-weight: bold;
+}
+
+.click-money-btn {
+	padding: 10px 0;
+}
+
+#btn2 {
+	border-radius: 20px;
+	width: 150px;
+	height: 50px;
+	background-color: none;
+	color: black;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#btn2:hover {
+	background-color: rgb(240, 192, 138);
+}
+
+.connect_btn {
+	border-radius:30px;
+	width: 800px;
+	height: 80px;
+	background-color:none;
+}
+
+.connect_btn:hover{
+	cursor:pointer;
+	background-color: rgb(223, 248, 155);
+}
+
+/* footer 아래에 놓으려고 일단 넣어둠  */
+
+.charge_btn{
+	border-radius:30px;
+	background-color: #e7e7e7;
+}
+
+.connect-bank{
+	height:525px;
+}
+
+li {
+	list-style: none;
+	padding-bottom:10px;
+}
+
+li input {
+	font-size: 20px;
+	border-radius: 3px;
+	border-color: #c0c0c0;
+	cursor: pointer;
+	background-color: #ffffff;
+	margin: 2px;
+	box-shadow: 1px 1px #808080;
+}
+
+li input:hover {
+	background-color: rgb(223, 248, 155);
+}
+
+#sumtext{
+	border: none; /* 기본적으로 모든 테두리를 없애줍니다. */
+  	border-bottom: 3px solid #808080; /* 아래 테두리만 추가합니다. */
+	font-size:42px;
+	text-align:center;
+	
+}
+
+.pointinfo_img>img, .connect_btn>img{
+	width:40px;
+	height:40px;
+	border-radius:10px;
+}
