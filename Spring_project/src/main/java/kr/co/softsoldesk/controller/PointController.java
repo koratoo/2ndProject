@@ -1,42 +1,72 @@
 package kr.co.softsoldesk.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import kr.co.softsoldesk.beans.chargeHistory;
+import kr.co.softsoldesk.mapper.PointMapper;
 
 @Controller
-@RequestMapping("/pointApi")
+@RequestMapping("/POINT")
 public class PointController {
 
-	
-	//가상계좌 연동 API
-	//경로는 토스 API문서의 이름과 동일하게 만들었음 ex) Api문서 virtual_account(가상계좌)
-	@GetMapping("/virtual_account")
-	public String chargeByVirtualAccount() {
-		
-		return "pointApi/virtual_account";
-	}
+	@Autowired
+	PointMapper point_mapper;
 	
 	
 	//충전 페이지
 	@GetMapping("/ChargePoint")
 	public String chargePoint() {	
 		
-		return "pointApi/ChargePoint";
+		return "POINT/ChargePoint";
 	}
 	
 	//보유 포인트 정보 페이지
 	@GetMapping("/PointInfo")
-	public String PointInfo() {	
+	public String PointInfo(Model model) {	
+		try {
+			chargeHistory ch = point_mapper.chargehistory();
+			model.addAttribute("ch",ch);			
+		} catch (Exception e) {
+			System.out.println("예외 발생");
+		}
 		
-		return "pointApi/PointInfo";
+		return "POINT/PointInfo";
 	}
 	
-	//충전 페이지
+	//기부 페이지
 	@GetMapping("/CharityPage")
 	public String ChargePoint() {	
 		
-		return "pointApi/CharityPage";
+		return "POINT/CharityPage";
+	}
+	
+	//충전 성공 페이지
+	@GetMapping("/ChargeSuccess")
+	public String ChargeSuccess(chargeHistory ch) {	
+		try {
+			
+			ch.setCharge_amount(121212);
+			ch.setUser_id("kjs002_testdat 230419");
+			ch.setPayment_tool("kakao pay");
+			
+			point_mapper.chargePoint(ch);
+		} catch (Exception e) {
+			System.out.println("충전 페이지 예외 발생");
+		}
+		
+		return "POINT/ChargeSuccess";
+	}
+	
+	
+	@GetMapping("/accountInfo")
+	public String accountInfo() {
+		
+		return "POINT/accountInfo";
 	}
 	
 }
