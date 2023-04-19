@@ -2,114 +2,131 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<!-- jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<!-- iamport.payment.js -->
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../css/all.css" />
-<style type="text/css">
-* {
-	margin: 0;
-	padding: 0;
-	/* box-sizing: border-box;	 */
-}
+<link rel="stylesheet" href="../css/ChargePoint.css" />
+	<script>
+        var IMP = window.IMP; 
+        IMP.init("imp70574668"); 
+    
+        function requestPay() {
+        	var amount = $("#sumtext").val();
+            IMP.request_pay({
+                pg : 'kcp',
+                pay_method : 'card',
+                merchant_uid: "57008833-33015", 
+                name : 'PLORS 포인트 충전',
+                amount : amount,
+                buyer_email : 'lears98@naver.com',
+                buyer_name : '김지성',
+                buyer_tel : '010-7566-5630',
+                buyer_addr : '서울특별시 마포구 연남동',
+                buyer_postcode : '123-456'
+            }, function (rsp) { // callback
+                if (rsp.success) {
+                	   location.href = "#";
+                } else {
+                    console.log(rsp);
+                }
+            });
+        }
+        
+         var sum = 0; // 변수를 함수 내에서 선언
+       	 function calc(button) {
+        	  if (button) {
+        	    sum += parseInt(button.value);
+        	  } else {
+        	    sum -= button.value;
+        	  }
+        	  document.getElementById("sumtext").value = sum;
+        	}
+       	 function init(button) {
+        	 sum=0;
+        	  document.getElementById("sumtext").value = sum;
+        	}
+         
+       	
+        
+        function addButton() {
+        	  // 버튼 개수가 6개 이상인 경우 추가할 수 없습니다.
+        	  if (document.querySelectorAll(".connect_btn").length >= 6) {
+        	    alert("최대 6개까지 등록할 수 있습니다.");
+        	    return;
+        	  }
 
-#container {
-	margin: 0 auto;
-	position: relative;
-	top: 110px;
-	min-height: 859px;
-}
+        	  // 은행과 계좌번호 입력 받기
+        	  var bankInput = prompt("은행 이름을 입력해주세요.");
+        	  var accountInput = prompt("계좌번호를 입력해주세요.");
 
-.font-color {
-	color: purple;
-}
+        	  // 입력값이 없는 경우 추가하지 않음
+        	  if (!bankInput || !accountInput) {
+        	    return;
+        	  }
 
-#btn {
-	border-radius: 100%;
-	border-color: #fff8f2;
-	width: 30px;
-	height: 30px;
-	background-color: none;
-	color: black;
-	font-weight: bold;
-}
+        	  // 새로운 li 요소를 생성
+        	  var newLi = document.createElement("li");
 
-.click-money-btn {
-	padding: 10px 0;
-}
+        	  // 새로운 input 요소를 생성합니다.
+        	  var newInput = document.createElement("input");
+        	  newInput.setAttribute("type", "button");
+        	  newInput.setAttribute("class", "connect_btn");
+        	  newInput.setAttribute("onclick", "location.href='#'");
+        	  newInput.setAttribute("value", bankInput + " | 계좌 번호 : " + accountInput);
 
-#btn2 {
-	border-radius: 10px;
-	border-color: #fffbf8;
-	width: 150px;
-	height: 50px;
-	background-color: #f8ede4;
-	color: black;
-	font-weight: bold;
-	cursor: pointer;
-}
+        	  // 생성된 input 요소를 li 요소에 추가
+        	  newLi.appendChild(newInput);
 
-#btn2:hover {
-	background-color: rgb(240, 192, 138);
-}
+        	  // 생성된 li 요소를 버튼 컨테이너에 추가
+        	  var container = document.getElementById("button-container");
+        	  container.appendChild(newLi);
+        	}
+        
+     
+     
 
-.connect_btn {
-	width: 800px;
-	height: 95px;
-}
-/* footer 아래에 놓으려고 일단 넣어둠  */
-.connect_btn_bottom {
-	padding-bottom: 28px;
-}
+    </script>
 
-li {
-	list-style: none;
-}
-
-li input {
-	font-family: 'GmarketSansMedium';
-	font-size: 20px;
-	border-radius: 3px;
-	border-color: #fff8f2;
-	cursor: pointer;
-	background-color: #fcefe4;
-	margin: 2px;
-	box-shadow: 1px 1px #ec8f3d;
-}
-
-li input:hover {
-	background-color: rgb(223, 248, 155);
-}
-</style>
 <title>PLORS_포인트 충전</title>
 </head>
 <body>
 	<!-- 상단 header -->
 	<%@ include file="../MAIN/header.jsp"%>
 
-	<%-- <input id="btn" type="button" value="<" onclick="history.back()" style="margin-left: 400px; margin-top: 10px;"> --%>
 
 	<center id="container">
-		<h4>포인트 충전 페이지</h4>
-		<div align="left" style="width: 800px;">
-			<a class="font-color" href="./PointInfo">보유 포인트 정보</a>
+		<h2>포인트 충전 페이지</h2>
+		<div align="right" style="width: 800px;">
+			<a class="pointinfo_img" href="./PointInfo"><img src="../img/point.png" alt="포인트정보 페이지로 이동합니다."/></a>
+			
 		</div>
+		<br>
 		<div style="width: 800px;">
 			<p></p>
-			<input type="text" placeholder="충전할 금액을 입력해 주세요." style="width: 600px; height: 50px;" />
+			<input type="text" id="sumtext" placeholder="충전할 금액을 입력해 주세요." style="width: 550px; height: 50px;" />
 		</div>
+		<br>
 		<p />
 		<div class="click-money-btn">
-			<input id="btn2" type="button" value="+1만"> 
-			<input id="btn2" type="button" value="+5만"> 
-			<input id="btn2" type="button" value="+10만"> 
-			<input id="btn2" type="button" value="+100만">
+			<button id="btn2"  value="1000" onclick="calc(this)">천원</button>
+			<button id="btn2"  value="5000" onclick="calc(this)">5천원</button>
+			<button id="btn2"  value="10000" onclick="calc(this)">만원</button>
+			<button id="btn2"  value="50000" onclick="calc(this)">5만원</button>
+			<button id="btn2"  onclick="init(this)">직접입력하기</button>
 		</div>
-		<p />
+		<p /><br>
 		<div class="connect-bank">
-			<ul>
+			<ul id="button-container">
 				<li>
-					<input class="connect_btn" type="button" onclick="location.href='#'" value="+은행/증권 계좌를 등록해주세요">
+					<button class="connect_btn"  onclick="addButton()" onclick="location.href='#'" ">
+						<img src="../img/card.png" alt="" />
+						<h4>+은행/증권 계좌를 등록해주세요</h4>
+					</button>
 				</li>
-				<li>
+				<!-- <li>
 					<input class="connect_btn" type="button" onclick="location.href='#'" value="신한은행 계좌 번호 : 1231-149-1123-0294-123">
 				</li>
 				<li>
@@ -117,22 +134,31 @@ li input:hover {
 				</li>
 				<li>
 					<input class="connect_btn" type="button" onclick="location.href='#'" value="농협은행 계좌 번호 : 6453301-149134-155681">
-				</li>
+				</li> -->
 				<li>
-					<input class="connect_btn" type="button" onclick="location.href='#'" value="기업은행 계좌 번호 : 312233-1231231234">
-				</li>
-				<li class="connect_btn_bottom" >
-					<input type="button" value="충전하기" style="width: 800px; height: 50px;">
+					<input class="connect_btn" type="button" onclick="location.href='ChargeSuccess'" value="충전 성공 테스트용">
 				</li>
 			</ul>
+			<ul>
+				<li>
+					<input class="charge_btn" type="button" onclick="requestPay()" value="충전하기" style="width: 800px; height: 50px;">
+				</li>
+			</ul>
+				
+			
 			<p />
+			<!-- 하단 footer -->
 		</div>
 		
+		
+			
 		<!-- 좌측 슬라이드 메뉴 -->
 		<%@ include file="../MAIN/left_menu.jsp"%>
 
-		<!-- 하단 footer -->
+	
 		<%@ include file="../MAIN/footer.jsp"%>
+	
+		
 	</center>
 </body>
 </html>
