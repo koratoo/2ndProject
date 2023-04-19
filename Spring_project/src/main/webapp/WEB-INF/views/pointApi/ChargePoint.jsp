@@ -15,10 +15,11 @@
     
         function requestPay() {
         	var amount = $("#sumtext").val();
+        	var merchant_uid = $("#").val();
             IMP.request_pay({
                 pg : 'kcp',
                 pay_method : 'card',
-                merchant_uid: "57008833-33015", 
+                merchant_uid: merchant_uid, 
                 name : 'PLORS 포인트 충전',
                 amount : amount,
                 buyer_email : 'lears98@naver.com',
@@ -37,11 +38,17 @@
         
          var sum = 0; // 변수를 함수 내에서 선언
        	 function calc(button) {
+        	  if(sum>=1000000){
+        		  alert('한번에 100만원 이상 충전은 불가능합니다.')
+        		  return;
+        	  }
         	  if (button) {
         	    sum += parseInt(button.value);
         	  } else {
         	    sum -= button.value;
         	  }
+        	  
+        	  
         	  document.getElementById("sumtext").value = sum;
         	}
        	 function init(button) {
@@ -52,9 +59,9 @@
        	
         
         function addButton() {
-        	  // 버튼 개수가 6개 이상인 경우 추가할 수 없습니다.
-        	  if (document.querySelectorAll(".connect_btn").length >= 6) {
-        	    alert("최대 6개까지 등록할 수 있습니다.");
+        	  // 버튼 개수가 5개 이상인 경우 추가할 수 없습니다.
+        	  if (document.querySelectorAll(".connect_btn").length >= 4) {
+        	    alert("최대 3개의 계좌를 등록할 수 있습니다.");
         	    return;
         	  }
 
@@ -70,12 +77,13 @@
         	  // 새로운 li 요소를 생성
         	  var newLi = document.createElement("li");
 
-        	  // 새로운 input 요소를 생성합니다.
-        	  var newInput = document.createElement("input");
-        	  newInput.setAttribute("type", "button");
-        	  newInput.setAttribute("class", "connect_btn");
-        	  newInput.setAttribute("onclick", "location.href='#'");
-        	  newInput.setAttribute("value", bankInput + " | 계좌 번호 : " + accountInput);
+	        	  // 새로운 input 요소를 생성합니다.
+	        	  var newInput = document.createElement("input");
+	        	  newInput.setAttribute("type", "button");
+	        	  newInput.setAttribute("class", "connect_btn");
+	        	  newInput.setAttribute("name", accountInput);
+	        	  newInput.setAttribute("onclick", "location.href='accountInfo'");
+	        	  newInput.setAttribute("value", bankInput + " | 계좌 번호 : " + accountInput);
 
         	  // 생성된 input 요소를 li 요소에 추가
         	  newLi.appendChild(newInput);
@@ -98,7 +106,7 @@
 
 
 	<center id="container">
-		<h2>포인트 충전 페이지</h2>
+		<h2>PLORS 포인트 충전</h2>
 		<div align="right" style="width: 800px;">
 			<a class="pointinfo_img" href="./PointInfo"><img src="../img/point.png" alt="포인트정보 페이지로 이동합니다."/></a>
 			
@@ -121,44 +129,28 @@
 		<div class="connect-bank">
 			<ul id="button-container">
 				<li>
-					<button class="connect_btn"  onclick="addButton()" onclick="location.href='#'" ">
+					<button class="connect_btn"  onclick="addButton()" onclick="location.href='#'" >
 						<img src="../img/card.png" alt="" />
 						<h4>+은행/증권 계좌를 등록해주세요</h4>
 					</button>
 				</li>
-				<!-- <li>
-					<input class="connect_btn" type="button" onclick="location.href='#'" value="신한은행 계좌 번호 : 1231-149-1123-0294-123">
-				</li>
-				<li>
-					<input class="connect_btn" type="button" onclick="location.href='#'" value="하나은행 계좌 번호 : 2120301-14902194-123">
-				</li>
-				<li>
-					<input class="connect_btn" type="button" onclick="location.href='#'" value="농협은행 계좌 번호 : 6453301-149134-155681">
-				</li> -->
-				<li>
-					<input class="connect_btn" type="button" onclick="location.href='ChargeSuccess'" value="충전 성공 테스트용">
-				</li>
 			</ul>
-			<ul>
-				<li>
-					<input class="charge_btn" type="button" onclick="requestPay()" value="충전하기" style="width: 800px; height: 50px;">
-				</li>
-			</ul>
-				
-			
-			<p />
-			<!-- 하단 footer -->
 		</div>
-		
-		
 			
-		<!-- 좌측 슬라이드 메뉴 -->
-		<%@ include file="../MAIN/left_menu.jsp"%>
+	<input class="charge_btn" type="button" onclick="requestPay()" value="충전하기" style="width: 800px; height: 50px;">
+				
+			<br>	
+			<h6>PLORS 판매 번호</h6>
+			<h6>이미 성공한 판매번호는 다시 사용할 수 없습니다.</h6>
+			<input id="merchant_id" type="text" value="57008833-33016" style="text-align:center" />
+			<br><h6>made by js</h6>
+		
+<!-- 			<input class="connect_btn" type="button" onclick="location.href='ChargeSuccess'" value="충전 성공 테스트용">
+ -->		
+	<%@ include file="../MAIN/footer.jsp"%>
+	</center>
+	<%@ include file="../MAIN/left_menu.jsp"%>
 
 	
-		<%@ include file="../MAIN/footer.jsp"%>
-	
-		
-	</center>
 </body>
 </html>
