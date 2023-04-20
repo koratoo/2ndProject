@@ -16,7 +16,7 @@
  </script>
 	<script>
         var IMP = window.IMP; 
-        IMP.init("imp70574668"); 
+        IMP.init("#"); 
     
         function requestPay() {
         	var amount = $("#sumtext").val();
