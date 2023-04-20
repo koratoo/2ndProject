@@ -153,14 +153,14 @@ table{
 	           </tr>
 	           <tr >
 	           <tr>
-	            <td width="250" height="40">구매일</td>
+	            <td width="250" height="40">최근 결제일</td>
 	            <td>|</td>
-	            <td width="600" style="text-align: right;">${ch.charge_date}</td>
+	            <td width="600" style="text-align: right;">${ch.chargeDateStr}</td>
 	           </tr>
 	           <tr>
 	            <td width="250" height="40">이벤트/기타</td>
 	            <td>|</td>
-	            <td width="600" style="text-align: right;">0원</td>
+	            <td width="600" style="text-align: right;">현재 진행되는 이벤트가 없습니다.</td>
 	           </tr>
 	          
 	        </table>
