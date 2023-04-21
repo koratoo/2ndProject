@@ -1,5 +1,6 @@
 package kr.co.softsoldesk.controller;
 
+import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.softsoldesk.beans.chargeHistory;
 import kr.co.softsoldesk.mapper.PointMapper;
@@ -83,6 +85,41 @@ public class PointController {
 	        // TODO: 예외 처리
 	    }
 	    return "POINT/ChargeSuccess";
+	}
+	
+	@GetMapping("/pwd_enhance")
+	public String secondPwdPage() {
+		
+		
+		return "POINT/pwd_enhance";
+	}
+	
+	@PostMapping("/pwd_enhance")
+	public String secondPwdPage_post(@RequestParam String pwd1, @RequestParam String pwd2) throws Exception {
+
+	    try {
+	        if(pwd1.equals(pwd2)) {
+	            // 두 비밀번호가 일치하는 경우
+	            String encryptedPwd = AesEncryptor.encrypt(pwd1);
+	            System.out.println("암호화된 비밀번호 : " + encryptedPwd);
+	            
+	            // 암호화된 비밀번호를 DB에 저장하는 로직 구현
+	            // ...
+
+	            String decryptedPwd = AesEncryptor.decrypt(encryptedPwd);
+	            System.out.println("복호화된 비밀번호 : " + decryptedPwd);
+	            System.out.println("비밀번호 일치");
+	            return "POINT/ChargePoint";
+	        } else {
+	            // 두 비밀번호가 일치하지 않는 경우
+	            System.out.println("비밀번호 불일치");
+	            return "redirect:/pwd_enhance"; // 비밀번호 입력 페이지로 다시 이동
+	        }
+	    } catch (Exception e) {
+	        System.out.println("비밀번호 암호화/복호화 중 오류 발생");
+	        e.printStackTrace();
+	        return "POINT/chargePoint";
+	    }
 	}
 	
 }
