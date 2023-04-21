@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <html>
 <head>
 <!-- jQuery -->
@@ -19,7 +22,7 @@
         IMP.init("#"); 
     
         function requestPay() {
-        	var amount = $("#sumtext").val();
+            var amount = $("#sumtext").val().replace(",", "");
         	var merchant_uid = $("#merchant_id").val();
             IMP.request_pay({
                 pg : 'kcp',
@@ -78,7 +81,7 @@
         	  }
         	  
         	  
-        	  document.getElementById("sumtext").value = sum;
+        	  document.getElementById("sumtext").value = sum.toLocaleString('ko-KR') + ' 원';
         	}
          
        	 function init(button) {
@@ -174,12 +177,12 @@
 		<h2>PLORS 포인트 충전</h2>
 		<div align="right" style="width: 800px;">
 			<a class="pointinfo_img" href="./PointInfo"><img src="../img/point.png" alt="포인트정보 페이지로 이동합니다."/></a>
-			
 		</div>
 		<br>
 		<div style="width: 800px;">
 			<p></p>
 			<input type="text" id="sumtext" placeholder="충전할 금액을 입력해 주세요." style="width: 550px; height: 50px;" />
+			<fmt:formatNumber value="${amount}" pattern="#,###원" />
 		</div>
 		<br>
 		<p />
