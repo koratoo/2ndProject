@@ -2,13 +2,13 @@
 PLORS(Public Library Order Relation System)
 공공 도서관 대여 연계 시스템
 
-### 사용 기술
+### 1. 사용 기술
+<hr/>
 자바, 스프링, 마이바티스, JQuery, HTML, CSS, JavaScript, Oracle 11g
 
-### 설계 주안점
+### 2. 설계 주안점
+<hr/>
 <p>
-  
-
   1. 팀의 의견 반영과 방향성을 수시로 확인하며 코드를 짜기 위해 노력하였습니다.
   ->팀원의 의견 피드백을 듣고자 노력
 
@@ -20,6 +20,7 @@ PLORS(Public Library Order Relation System)
 </p>
 
 ### 역할 및 기능 설명
+<hr/>
 <p>
 제가 담당한 부분은 포인트충전, 충전내역 조회, 기부 페이지입니다.
 
@@ -51,6 +52,7 @@ PLORS(Public Library Order Relation System)
 
 
 ### 4월 18일 ~ 
+<hr/>
 1일차 결제 연동 : https://blog.naver.com/lears98/223078466074<br>
 2일차 충전화면 이벤트 로직 구현 : https://blog.naver.com/lears98/223078948944<br>
 3일차 조건에 따른 회원정보를 조회 : https://blog.naver.com/lears98/223080473530<br>
@@ -58,6 +60,7 @@ PLORS(Public Library Order Relation System)
 5일차 계좌연동 프로세스 전면수정 (토요일 잔업)  : https://blog.naver.com/lears98/223082251924<br>
 
 ### 기타
+<hr/>
 토스페이먼트 결제 연습 : https://blog.naver.com/lears98/223077374349<br>
 아임포트 결제 연동 : https://blog.naver.com/lears98/223078261933<br>
 암호와 알고리즘 : https://blog.naver.com/lears98/223081422666
