@@ -1,7 +1,7 @@
 package kr.co.softsoldesk.controller;
 
-import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,11 +27,14 @@ public class PointController {
 	@Autowired
 	private BankMapper bankMapper;
 	
-	//충전 페이지
 	@GetMapping("/ChargePoint")
-	public String chargePoint() {	
+	public String chargePoint(Model model) {	
 		
-		return "POINT/ChargePoint";
+		
+		List<fakeBank> fb = bankMapper.selectFakeBankByUserId();
+	    model.addAttribute("fakeBank", fb);
+	    
+	    return "POINT/ChargePoint";
 	}
 	
 	//보유 포인트 정보 페이지
