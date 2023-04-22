@@ -1,5 +1,6 @@
-# 2ndProject
-PLORS
+# 프로젝트 명
+PLORS(Public Library Order Relation System)
+공공 도서관 대여 연계 시스템
 
 ### 사용 기술
 자바, 스프링, 마이바티스, JQuery, HTML, CSS, JavaScript, Oracle 11g
