@@ -1,4 +1,4 @@
-# 프로젝트 명
+# 프로젝트 명 : PLORS
 PLORS(Public Library Order Relation System)
 공공 도서관 대여 연계 시스템
 
