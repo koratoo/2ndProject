@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
@@ -19,7 +20,7 @@
  </script>
 	<script>
         var IMP = window.IMP; 
-        IMP.init("imp70574668"); 
+        IMP.init("#"); 
     
         function requestPay() {
             var amount = $("#sumtext").val().replace(",", "");
@@ -32,7 +33,7 @@
                 amount : amount,
                 buyer_email : 'lears98@naver.com',
                 buyer_name : '김지성',
-                buyer_tel : '010-7566-5630',
+                buyer_tel : '번호',
                 buyer_addr : '서울특별시 마포구 연남동',
                 buyer_postcode : '123-456'
             }, function (rsp) { // callback
@@ -127,13 +128,15 @@
 			<ul id="button-container">
 				<li>
 					<button class="connect_btn"  onclick="location.href='accountInfo'" >
-						<img src="../img/card.png" alt="" />
+						<img src="../img/card3.png" alt="" />
 						<h4>+은행/증권 계좌를 등록해주세요</h4>
 					</button><br><br>
-					<button class="connect_btn"  onclick="addButton()" >
-						<img src="../img/card.png" alt="" />
-						<h4>무슨 계좌</h4>
-					</button>
+					<c:forEach items="${fakeBank}" var="fakeBank">
+					    <button class="connect_btn" onclick="#">
+					    	<img src="../img/card.png" alt="" />
+					        <span>${fakeBank.bankName} | ${fakeBank.accountNumber}</span>
+					    </button><br><br>
+					</c:forEach>
 				</li>
 			</ul>
 		</div>
