@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>포인트 충전 페이지</title>
+<style>
+     @font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+    body{
+        font-family: 'GmarketSansMedium';
+        background-color: #fff8f2;
+    }
+    #btn{
+    border-radius: 100%;
+    border-color:#fff8f2;
+    width: 30px;
+    height: 30px;
+    background-color: none;
+    color:black;
+    font-weight: bold;
+   }
+
+   #btn2{
+    border-radius: 10px;
+    border-color:#fffbf8;
+    width: 150px;
+    height: 50px;
+    background-color: #f8ede4;
+    color:black;
+    font-weight: bold;
+    cursor: pointer;
+   }
+   #btn2:hover{
+    background-color: rgb(240, 192, 138);
+   }
+
+   li{
+    list-style: none;
+   }
+
+   li input{
+    font-family: 'GmarketSansMedium';
+    font-size: 20px;
+    border-radius: 3px;
+    border-color: #fff8f2;
+    cursor: pointer;
+    background-color: #fcefe4;
+    margin:2px;
+    box-shadow: 1px 1px #ec8f3d;
+   }
+   li input:hover{
+    background-color: rgb(223, 248, 155);
+   }
+
+</style>
+</head>
+<body>
+    <input id="btn" type="button" value="<" onclick="history.back()" style="margin-left : 400px; margin-top: 10px;">
+
+<center>
+    <h4>포인트 충전 페이지</h4>
+    <div align="left" style="width: 800px;"> <a href="./PointInfo.html">보유 포인트 정보</a></div>
+    <div style="width: 800px;">
+        <p></p>
+        <input type="text" placeholder="충전할 금액을 입력해 주세요." style="width: 600px; height: 50px;" />
+    </div>
+    <p />
+    <div class="click-money-btn">
+        <input  id="btn2" type="button" value="+1만">
+        <input  id="btn2" type="button" value="+5만">
+        <input  id="btn2" type="button" value="+10만">
+        <input  id="btn2" type="button" value="+100만">
+    </div>
+    <p />
+    <div class="connect-bank" >
+        <ul>
+            <li>
+                <input type="button"  onclick="location.href='#'" value="+은행/증권 계좌를 등록해주세요" style="width: 800px; height: 100px;">
+            </li>
+            <li>
+                <input type="button"  onclick="location.href='#'" value="신한은행 계좌 번호 : 1231-149-1123-0294-123" style="width: 800px; height: 100px;">
+            </li>
+            <li>
+                <input type="button"  onclick="location.href='#'" value="하나은행 계좌 번호 : 2120301-14902194-123" style="width: 800px; height: 100px;">
+            </li>
+            <li>
+                <input type="button"  onclick="location.href='#'" value="농협은행 계좌 번호 : 6453301-149134-155681" style="width: 800px; height: 100px; ">
+            </li>
+            <li>
+                <input type="button"  onclick="location.href='#'" value="기업은행 계좌 번호 : 312233-1231231234" style="width: 800px; height: 100px;">
+            </li>
+            <li>
+                <input type="button" value="충전하기" style="width: 800px; height: 50px;">
+            </li>
+        </ul>
+                
+           
+        <p/>
+       
+    </div>
+    <div>
+    footer        
+    </div>
+</center>
+</body>
+</html>
