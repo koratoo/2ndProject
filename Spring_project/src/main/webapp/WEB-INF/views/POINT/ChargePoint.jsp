@@ -8,6 +8,7 @@
 <head>
 <!-- jQuery -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- iamport.payment.js -->
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -20,7 +21,7 @@
  </script>
 	<script>
         var IMP = window.IMP; 
-        IMP.init("#"); 
+        IMP.init("imp70574668"); 
     
         function requestPay() {
             var amount = $("#sumtext").val().replace(",", "");
@@ -33,7 +34,7 @@
                 amount : amount,
                 buyer_email : 'lears98@naver.com',
                 buyer_name : '김지성',
-                buyer_tel : '번호',
+                buyer_tel : '010-7566-5630',
                 buyer_addr : '서울특별시 마포구 연남동',
                 buyer_postcode : '123-456'
             }, function (rsp) { // callback
@@ -64,6 +65,7 @@
             })()
           });
          
+        
          var sum = 0; // 변수를 함수 내에서 선언
        	 function calc(button) {
         	  if(sum>=1000000){
@@ -90,9 +92,36 @@
         	  document.getElementById("sumtext").value = sum;
         	}
          
-       	 
-       	 
-       	
+       
+		
+       	function showAlert() {
+       	    const sumtext = $("#sumtext").val().replace(",", "");
+	       	 
+	       	 if (sumtext <= "0") {
+	       	    Swal.fire("알림", "금액을 입력해주세요.", "warning");
+	       	    return;
+	       	  }
+       	    const alertMsg = "충전하시겠습니까? " + sumtext ;
+
+       	    Swal.fire({
+       	      title: "알림",
+       	      text: alertMsg,
+       	      icon: "warning",
+       	      showCancelButton: true,
+       	      confirmButtonColor: "#3085d6",
+       	      cancelButtonColor: "#d33",
+       	      confirmButtonText: "충전",
+       	      cancelButtonText: "취소",
+       	    }).then((result) => {
+       	      if (result.isConfirmed) {
+       	        Swal.fire("충전되었습니다.", "", "success");
+       	      } else {
+       	        Swal.fire("충전이 취소되었습니다.", "", "info");
+       	      }
+       	    
+       	    });
+       	  
+       	}
 
     </script>
 
@@ -132,11 +161,12 @@
 						<h4>+은행/증권 계좌를 등록해주세요</h4>
 					</button><br><br>
 					<c:forEach items="${fakeBank}" var="fakeBank">
-					    <button class="connect_btn" onclick="#">
-					    	<img src="../img/card.png" alt="" />
-					        <span>${fakeBank.bankName} | ${fakeBank.accountNumber}</span>
+					   <button class="connect_btn" onclick="showAlert()">
+					    	<img src="../img/card.png"/>
+					        <p>${fakeBank.bankName} | ${fakeBank.accountNumber}</p>
 					    </button><br><br>
 					</c:forEach>
+					
 				</li>
 			</ul>
 		</div>
@@ -155,6 +185,6 @@
 	</center>
 	<%@ include file="../MAIN/left_menu.jsp"%>
 
-	
+
 </body>
 </html>
