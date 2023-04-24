@@ -1,0 +1,74 @@
+create table jdbc_table(
+    
+    int_data number not null,
+    str_data varchar2(200) not null
+);
+
+select int_data,str_data from jdbc_table order by int_data;
+commit;
+
+create table RestFulDB(
+id varchar2(50),
+name varchar2(50),
+maker varchar2(50),
+price number
+);
+
+select * from RestFulDB;
+
+-----------------------------------------
+drop table chargeHistory;
+create table chargeHistory(
+ch_no number primary key,
+user_id varchar2(1000),
+charge_date date,
+charge_amount number,
+payment_tool varchar2(1000)
+);
+
+drop sequence ch_seq;
+CREATE SEQUENCE ch_seq
+       INCREMENT BY 1
+       START WITH 1
+       MINVALUE 1
+       MAXVALUE 9999
+       NOCYCLE
+       NOCACHE
+       NOORDER;
+
+insert into chargeHistory (ch_no, user_id,charge_date,charge_amount,payment_tool)  
+values(ch_seq.nextval,'lears01@naver.com',sysdate, 1400000, 'kakao pay');
+insert into chargeHistory (ch_no, user_id,charge_date,charge_amount,payment_tool)  
+values(ch_seq.nextval,'lears02@naver.com',sysdate, 1400000, 'kakao pay');
+insert into chargeHistory (ch_no, user_id,charge_date,charge_amount,payment_tool)  
+values(ch_seq.nextval,'lears03@naver.com',sysdate, 1500000, 'kakao pay');
+insert into chargeHistory (ch_no, user_id,charge_date,charge_amount,payment_tool)  
+values(ch_seq.nextval,'lears04@naver.com',sysdate, 1600000, 'kakao pay');
+insert into chargeHistory (ch_no, user_id,charge_date,charge_amount,payment_tool)  
+values(ch_seq.nextval,'lears05@naver.com',sysdate, 1700000, 'kakao pay');
+
+delete from chargeHistory;
+select * from chargeHistory;
+
+select * from chargeHistory where user_id = 'lears01@naver.com';
+commit;
+
+
+SELECT user_id, SUM(charge_amount) AS charge_amount, 
+payment_tool, MAX(charge_date) AS latest_charge_date
+FROM chargeHistory 
+WHERE user_id = 'lears01@naver.com' AND EXTRACT(MONTH FROM charge_date) = 4
+GROUP BY user_id, payment_tool;
+
+
+
+
+SELECT SUM(charge_amount) FROM chargeHistory where user_id='lears01@naver.com';
+
+drop table fakeBank;
+create table fakeBank(
+    bankName varchar2(200),
+    accountNumber varchar2(2000), 
+    accountPwd number,
+    user_id varchar2(2000)
+)
