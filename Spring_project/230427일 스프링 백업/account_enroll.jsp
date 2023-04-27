@@ -58,6 +58,9 @@
 		text-align:center;
 		border:none;
 	}
+	select:hover{
+		cursor:pointer;
+	}
 	
 	button{
 		font-family: 'GmarketSansMedium';
@@ -66,10 +69,15 @@
 		height:50px;
 		border:none;
 	}
-	button:hover{
-		cursor: pointer;
-		background-color: darkgray;
-		color:white;
+	button[type="submit"]:disabled {
+	  opacity: 0.5;
+	  cursor: not-allowed;
+	}
+	
+	button[type="submit"]:not([disabled]):hover {
+	  background-color: #4CAF50;
+	  color: white;
+	  cursor:pointer;
 	}
 	
 	hr{
