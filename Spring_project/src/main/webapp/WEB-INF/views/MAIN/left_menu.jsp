@@ -162,9 +162,9 @@ nav .nav-links .link:hover {
 				<a href="#wishlist">장바구니</a> 
 				<a href="#wishlist">대여내역</a> 
 				<a href="#wishlist">배송조회</a> 
-				<a href="../POINT/ChargePoint.jsp">포인트충전</a> 
-				<a href="../POINT/CharityPage.jsp">기부</a> 
-				<a href="../POINT/PointInfo.jsp">포인트내역</a> 
+				<a href="../POINT/charge_point.jsp">포인트충전</a> 
+				<a href="../POINT/charity_page.jsp">기부</a> 
+				<a href="../POINT/point_info.jsp">포인트내역</a> 
 				<a href="../REVIEW/review.html">나의리뷰</a> 
 				<a href="../MYPAGE/MyPage_QnA.jsp">나의문의</a>
 				<div>&nbsp;</div>
