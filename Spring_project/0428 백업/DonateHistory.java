@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 public class DonateHistory {
 
-	 	private int MB_NO; 
+	    private int MB_NO; 
 	    private String DN_DATE;
 	    private int DN_POINT;
 	    private String DN_MESSAGE;
