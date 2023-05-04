@@ -54,7 +54,16 @@ PLORS(Public Library Order Relation System)
 2일차 충전화면 이벤트 로직 구현 : https://blog.naver.com/lears98/223078948944<br>
 3일차 조건에 따른 회원정보를 조회 : https://blog.naver.com/lears98/223080473530<br>
 4일차 계좌연동 이용약관 페이지 : https://blog.naver.com/lears98/223081494909<br>
-5일차 계좌연동 프로세스 전면수정 (토요일 잔업)  : https://blog.naver.com/lears98/223082251924<br>
+5일차 계좌연동 프로세스 전면수정 (토요일)  : https://blog.naver.com/lears98/223082251924<br>
+6일차 계좌 충전 페이지 디테일한 부분 (일요일) : https://blog.naver.com/lears98/223082842900 <br>
+7일차 AES를 서비스로직으로 분리 : https://blog.naver.com/lears98/223083388717<br>
+8일차 중간 정리 : https://blog.naver.com/lears98/223084879494<br>
+9일차 계좌 삭제기능 추가 : https://blog.naver.com/lears98/223086748027<br>
+10일차 결제결과 분리 / 계좌 마스킹 처리 : https://blog.naver.com/lears98/223086911194<br>
+11일차 세션을 적용 : https://blog.naver.com/lears98/223087566518<br>
+
+
+
 
 ### 기타
 <hr/>
