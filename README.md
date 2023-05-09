@@ -57,6 +57,7 @@ PLORS(Public Library Order Relation System)
 9일차 계좌 삭제기능 추가 : https://blog.naver.com/lears98/223086748027<br>
 10일차 결제결과 분리 / 계좌 마스킹 처리 : https://blog.naver.com/lears98/223086911194<br>
 11일차 세션을 적용 : https://blog.naver.com/lears98/223087566518<br>
+12일차 기부페이지/ PDF 저장 기능 : https://blog.naver.com/lears98/223097317604<br>
 
 
 
@@ -65,4 +66,5 @@ PLORS(Public Library Order Relation System)
 <hr/>
 토스페이먼트 결제 연습 : https://blog.naver.com/lears98/223077374349<br>
 아임포트 결제 연동 : https://blog.naver.com/lears98/223078261933<br>
-암호와 알고리즘 : https://blog.naver.com/lears98/223081422666
+암호와 알고리즘 : https://blog.naver.com/lears98/223081422666<br>
+REDIS 환경설정 : https://blog.naver.com/lears98/223092840887<br>
