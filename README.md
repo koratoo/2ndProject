@@ -68,9 +68,3 @@ PLORS(Public Library Order Relation System)
 아임포트 결제 연동 : https://blog.naver.com/lears98/223078261933<br>
 암호와 알고리즘 : https://blog.naver.com/lears98/223081422666<br>
 REDIS 환경설정 : https://blog.naver.com/lears98/223092840887<br>
-
-### 구현 화면
-<hr/>
-(https://user-images.githubusercontent.com/96603612/237048835-f3b64f3a-401f-4a40-a070-2d173654d158.png)<br>
-(https://user-images.githubusercontent.com/96603612/237048848-bbce5aaa-00eb-4655-85a6-3a3a41d5f135.png)<br>
-(https://user-images.githubusercontent.com/96603612/237048856-0052f671-71f7-4f12-9eb7-a2e0834f39cd.png)<br>
