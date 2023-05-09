@@ -41,9 +41,10 @@ PLORS(Public Library Order Relation System)
 </p>
 
 ![화면1](https://user-images.githubusercontent.com/96603612/237048835-f3b64f3a-401f-4a40-a070-2d173654d158.png)
-
-
-
+<br>
+![화면2](https://user-images.githubusercontent.com/96603612/237048848-bbce5aaa-00eb-4655-85a6-3a3a41d5f135.png)
+<br>
+![화면3](https://user-images.githubusercontent.com/96603612/237048856-0052f671-71f7-4f12-9eb7-a2e0834f39cd.png)
 
 ### 4월 18일 ~ 
 <hr/>
@@ -61,7 +62,7 @@ PLORS(Public Library Order Relation System)
 12일차 기부페이지/ PDF 저장 기능 : https://blog.naver.com/lears98/223097317604<br>
 
 
-![화면2](https://user-images.githubusercontent.com/96603612/237048848-bbce5aaa-00eb-4655-85a6-3a3a41d5f135.png)
+
 
 
 ### 기타
@@ -71,4 +72,3 @@ PLORS(Public Library Order Relation System)
 암호와 알고리즘 : https://blog.naver.com/lears98/223081422666<br>
 REDIS 환경설정 : https://blog.naver.com/lears98/223092840887<br>
 
-![화면3](https://user-images.githubusercontent.com/96603612/237048856-0052f671-71f7-4f12-9eb7-a2e0834f39cd.png)
