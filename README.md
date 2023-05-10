@@ -1,6 +1,6 @@
 # 프로젝트 명 : PLORS
 PLORS(Public Library Online Rental Service)
-공공 도서관 대여 연계 시스템
+공공 도서관 온라인 대여 서비스
 
 ### 1. 사용 기술
 <hr/>
