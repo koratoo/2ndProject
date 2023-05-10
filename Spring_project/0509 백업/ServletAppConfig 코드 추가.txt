@@ -1,6 +1,0 @@
-@Bean
-	public MapperFactoryBean<DonateMapper> charityMapper (SqlSessionFactory factory) throws Exception {
-		MapperFactoryBean<DonateMapper> factoryBean = new MapperFactoryBean<DonateMapper>(DonateMapper.class);
-		factoryBean.setSqlSessionFactory(factory);
-		return factoryBean;
-	}
