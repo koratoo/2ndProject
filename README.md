@@ -46,7 +46,7 @@ PLORS(Public Library Order Relation System)
 <br>
 ![화면3](https://user-images.githubusercontent.com/96603612/237048856-0052f671-71f7-4f12-9eb7-a2e0834f39cd.png)
 
-### 4월 18일 ~ 
+### 4월 26일 ~ 
 <hr/>
 1일차 결제 연동 : https://blog.naver.com/lears98/223078466074<br>
 2일차 충전화면 이벤트 로직 구현 : https://blog.naver.com/lears98/223078948944<br>
