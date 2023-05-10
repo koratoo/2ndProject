@@ -1,0 +1,20 @@
+
+/* charge history 시퀀스 */
+drop sequence ch_seq;
+CREATE SEQUENCE ch_seq
+       INCREMENT BY 1
+       START WITH 1
+       MINVALUE 1
+       MAXVALUE 9999
+       NOCYCLE
+       NOCACHE
+       NOORDER;
+
+/* donate history 테이블 */
+select *from donate_history;
+CREATE TABLE DONATE_HISTORY(
+    MB_NO INTEGER,
+    DN_DATE DATE,
+    DN_POINT INTEGER,
+    DN_MESSAGE VARCHAR2(1000)
+);

@@ -1,0 +1,11 @@
+@Bean
+	public MapperFactoryBean<DonateMapper> charityMapper (SqlSessionFactory factory) throws Exception {
+		MapperFactoryBean<DonateMapper> factoryBean = new MapperFactoryBean<DonateMapper>(DonateMapper.class);
+		factoryBean.setSqlSessionFactory(factory);
+		return factoryBean;
+	}
+
+
+
+인터셉터에 코드 추가
+reg2.addPathPatterns("/MAIN/MainBookSearch","/MYPAGE/modify","/MYPAGE/MyPage","/POINT/*");
