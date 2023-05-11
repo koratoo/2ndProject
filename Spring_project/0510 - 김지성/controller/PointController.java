@@ -94,6 +94,7 @@ public class PointController {
 	
 
 	//충전 성공시 amount/mb_no/payment_tool을 전하고 redirect함
+	@Transactional
 	@GetMapping("/charge_success/{amount}/{mb_no}/{payment_tool}")
 	public String chargeSuccess(@PathVariable int amount, @PathVariable int mb_no, 
 								@PathVariable String payment_tool) throws Exception {    
@@ -173,7 +174,7 @@ public class PointController {
   		}
   		return "POINT/charity_page";
   	}
-  	
+    @Transactional
     @PostMapping("/donateSuccess")
     public String donateSuccess(@RequestParam int dn_point, @RequestParam String dn_message ) throws Exception {
     	mb_no=loginUserBean.getMb_no();
