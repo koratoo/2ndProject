@@ -60,6 +60,7 @@ PLORS(Public Library Online Rental Service)
 10일차 결제결과 분리 / 계좌 마스킹 처리 : https://blog.naver.com/lears98/223086911194<br>
 11일차 세션을 적용 : https://blog.naver.com/lears98/223087566518<br>
 12일차 기부페이지/ PDF 저장 기능 : https://blog.naver.com/lears98/223097317604<br>
+13일차 트랜잭션 적용 : https://blog.naver.com/lears98/223099765540<br>
 
 
 
