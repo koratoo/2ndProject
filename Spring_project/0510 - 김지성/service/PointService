@@ -1,0 +1,54 @@
+package kr.co.itfriend.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import kr.co.itfriend.dao.DonateDao;
+import kr.co.itfriend.dao.PointDao;
+
+@Service
+@Transactional
+public class PointService {
+
+		@Autowired
+		PointDao pointdao;
+		
+		@Autowired
+		DonateDao donatedao;
+	
+		  
+	    @Transactional
+	    public void chargeSuccess(int mb_no,int amount,String payment_tool) throws Exception {
+	    	pointdao.insertChargeHistory(mb_no, amount, payment_tool);
+	    	donatedao.updateMoney(mb_no);
+	    }
+	    
+	    @Transactional
+	    public void donateSuccess(int mb_no, int dn_point, String dn_message) throws Exception {
+	    	donatedao.setDonateHistory(mb_no, dn_point, dn_message);
+	    	pointdao.updateTotalMoney(mb_no);
+	    }
+	
+		@Autowired
+	    private AesEncryptorService aesEncryptorService;
+
+	    public boolean validatePassword(String pwd1, String pwd2) throws Exception {
+	        if(pwd1.equals(pwd2)) {
+	            String encryptedPwd = aesEncryptorService.encrypt(pwd1);
+	            System.out.println("암호화된 비밀번호 : " + encryptedPwd);
+	            
+	            // 암호화된 비밀번호를 DB에 저장하는 로직 구현
+	            // ...
+	            
+	            String decryptedPwd = aesEncryptorService.decrypt(encryptedPwd);
+	            System.out.println("복호화된 비밀번호 : " + decryptedPwd);
+	            System.out.println("비밀번호 일치");
+	            return true;
+	        } else {
+	            System.out.println("비밀번호 불일치");
+	            return false;
+	        }
+	    }
+	  
+}
