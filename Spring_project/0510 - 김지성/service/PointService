@@ -7,8 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import kr.co.itfriend.dao.DonateDao;
 import kr.co.itfriend.dao.PointDao;
 
-@Service
-@Transactional
+@Servic
 public class PointService {
 
 		@Autowired
