@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.itfriend.beans.DonateHistory;
 import kr.co.itfriend.beans.UserBean;
@@ -95,13 +93,11 @@ public class PointController {
 	
 
 	//충전 성공시 amount/mb_no/payment_tool을 전하고 redirect함
-	@Transactional
 	@GetMapping("/charge_success/{amount}/{mb_no}/{payment_tool}")
 	public String chargeSuccess(@PathVariable int amount, @PathVariable int mb_no, 
 								@PathVariable String payment_tool) throws Exception {    
 		    mb_no=loginUserBean.getMb_no();
-	        pointDao.insertChargeHistory(mb_no, amount, payment_tool); 
-	        pointDao.updateTotalMoney(mb_no);
+	        pointService.chargeSuccess(mb_no, amount, payment_tool);
 	    return "redirect:/POINT/point_info";
 	}
 	
@@ -175,13 +171,11 @@ public class PointController {
   		}
   		return "POINT/charity_page";
   	}
-    @Transactional
+  	
     @PostMapping("/donateSuccess")
     public String donateSuccess(@RequestParam int dn_point, @RequestParam String dn_message ) throws Exception {
     	mb_no=loginUserBean.getMb_no();
-    	donateDao.setDonateHistory(mb_no,dn_point, dn_message);
-    	
-    	donateDao.updateMoney(mb_no);
+    	pointService.donateSuccess(dn_point, dn_point, dn_message);
     	System.out.println("Donate 성공 >> " +dn_point);
     	
     	return "redirect:/POINT/charity_page"; 
