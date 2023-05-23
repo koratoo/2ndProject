@@ -54,8 +54,39 @@ PLORS(Public Library Online Rental Service)
 JSTL을 사용하여 DB에 등록된 계좌를 불러오는 로직입니다.<br>
 계좌의 갯수만큼 불러와 버튼이 생성됩니다.<br>
 버튼의 좌 클릭시 <br>
-바로결제 자바스크립트 로직이 실행되고<br>
+바로결제 자바스크립트 로직이 실행됩니다.<br>
+	
+       	function showAlert() {
+       	    const sumtext = $("#sumtext").val().replace(",", "").replace("원","");
+	       	 
+	       	 if (sumtext <= "0") {
+	       	    Swal.fire("알림", "금액을 입력해주세요.", "warning");
+	       	    return;
+	       	  }
+       	    const alertMsg = "충전하시겠습니까? " + sumtext ;
 
+       	    Swal.fire({
+       	      title: "알림",
+       	      text: alertMsg,
+       	      icon: "warning",
+       	      showCancelButton: true,
+       	      confirmButtonColor: "#3085d6",
+       	      cancelButtonColor: "#d33",
+       	      confirmButtonText: "충전",
+       	      cancelButtonText: "취소",
+       	    }).then((result) => {
+       	      if (result.isConfirmed) {
+                	 var mb_no = 1;
+       	    		location.href = "charge_success/" + sumtext + "/" + mb_no + "/card" ;
+       	      } else {
+       	        Swal.fire("충전이 취소되었습니다.", "", "info");
+       	      }
+       	    });
+       	}
+
+
+결제 성공시 결제액과 세션에 등록된 멤버 번호(mb_no), 결제 정보가 컨트롤러로 전달됩니다.
+	
 버튼의 우 클릭시<br>
 
 
