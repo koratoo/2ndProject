@@ -42,12 +42,7 @@ PLORS(Public Library Online Rental Service)
 
 ![화면1](https://user-images.githubusercontent.com/96603612/237048835-f3b64f3a-401f-4a40-a070-2d173654d158.png)
 
-	<button class="connect_btn" onclick="registerAccount()" title="최대 3개까지 계좌연동이 가능합니다.">
-	   <img src="../img/add.png" alt="" /><br>
-	   <span style="font-size:25px"> 은행 계좌를 등록해주세요</span>
-	</button><br><br>
-
-
+## 코드 설명 - 바로결제 버튼
 	<c:forEach items="${fakeBank}" var="fakeBank">
 	   <button class="connect_btn" onclick="showAlert()" oncontextmenu="showDeleteConfirm(event)"  data-account-number="${fakeBank.accountNumber}">
 		<img src="../img/bankimg.png"/>
