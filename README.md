@@ -113,8 +113,10 @@ JSTL을 사용하여 DB에 등록된 계좌를 불러오는 로직입니다.<br>
 AJAX나 POST방식을 적극활용하지 못했던 부분이 아쉽습니다.
 
 
+
 <br>
 ![화면2](https://user-images.githubusercontent.com/96603612/237048848-bbce5aaa-00eb-4655-85a6-3a3a41d5f135.png)
+
 <br>
 ![화면3](https://user-images.githubusercontent.com/96603612/237048856-0052f671-71f7-4f12-9eb7-a2e0834f39cd.png)
 
