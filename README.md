@@ -88,6 +88,29 @@ JSTL을 사용하여 DB에 등록된 계좌를 불러오는 로직입니다.<br>
 결제 성공시 결제액과 세션에 등록된 멤버 번호(mb_no), 결제 정보가 컨트롤러로 전달됩니다.
 	
 ### 버튼의 우 클릭시<br>
+	function showDeleteConfirm(event) {
+       	   event.preventDefault(); // 기본 동작을 막습니다.
+       	   const accountNumber = event.currentTarget.dataset.accountNumber;
+       	   Swal.fire({
+       	      title: '계좌를 삭제하시겠습니까?',
+       	      icon: 'warning',
+       	      showCancelButton: true,
+       	      confirmButtonText: '삭제',
+       	      cancelButtonText: '취소'
+       	   }).then((result) => {
+       	      if (result.isConfirmed) {
+       	    	location.href = "charge_point/" + accountNumber;
+       	    	console.log(accountNumber);
+       	      }
+       	   });
+       	}
+	
+	
+지우고자 하는 계좌가 있다면 버튼을 우클릭하여 컨트롤러에 계좌번호를 전달하고 해당 계좌와 매핑되는 계좌를<br>
+삭제하는 로직을 구현했습니다.
+
+### 아쉬운 점
+AJAX나 POST방식을 적극활용하지 못했던 부분이 아쉽습니다.
 
 
 <br>
