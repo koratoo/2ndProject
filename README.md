@@ -2,6 +2,9 @@
 PLORS(Public Library Online Rental Service)
 공공 도서관 온라인 대여 서비스
 
+## 프로젝트 시연영상
+https://www.youtube.com/watch?v=H_csjleUYrs
+
 ### 1. 사용 기술
 <hr/>
 자바, 스프링, 마이바티스, JQuery, HTML, CSS, JavaScript, Oracle 11g
